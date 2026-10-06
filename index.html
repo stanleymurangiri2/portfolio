@@ -63,7 +63,7 @@
     position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--paper) 88%, transparent);
     backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);
   }
-  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: none; padding: 0 clamp(16px, 2.2vw, 40px); }
   .mark { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; }
   .mark .sm {
     width: 34px; height: 34px; border-radius: 9px; background: var(--ink); color: var(--paper);
