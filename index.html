@@ -205,7 +205,35 @@
   .contact .btn.solid { background: var(--paper); color: var(--ink); border-color: var(--paper); }
   .contact .btn.ghost { color: var(--paper); border-color: color-mix(in srgb, var(--paper) 50%, transparent); }
   .contact .small { font-size: 14px; margin-top: 22px; }
-  footer { padding: 0 0 40px; color: var(--muted); font-size: 14px; }
+  /* Footer */
+  .site-footer { border-top: 1px solid var(--line); padding-top: 56px; color: var(--muted); font-size: 15px; overflow: hidden; }
+  .foot-grid { display: grid; grid-template-columns: 1.6fr repeat(3, 1fr); gap: 40px; }
+  .foot-brand .mark { font-size: 18px; color: var(--ink); }
+  .foot-brand p { margin: 14px 0 18px; max-width: 38ch; }
+  .status { display: inline-flex; align-items: center; gap: 8px; font: 600 13px Inter, sans-serif; color: var(--ink); background: var(--card); border: 1px solid var(--line); padding: 7px 12px; border-radius: 999px; }
+  .status .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--soma); box-shadow: 0 0 0 0 color-mix(in srgb, var(--soma) 60%, transparent); animation: pulse 2.4s infinite; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--soma) 55%, transparent); } 70% { box-shadow: 0 0 0 9px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+  @media (prefers-reduced-motion: reduce) { .status .dot { animation: none; } }
+  .site-footer h3 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 6px 0 14px; font-weight: 700; }
+  .site-footer ul { list-style: none; padding: 0; margin: 0; }
+  .site-footer li { margin: 0 0 10px; }
+  .site-footer a { text-decoration: none; color: var(--ink); }
+  .site-footer a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .site-footer .ext::after { content: " ↗"; color: var(--muted); font-size: 13px; }
+  .clock { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--ink); }
+  .signature {
+    font: 800 clamp(30px, 12.6vw, 260px)/0.82 Fraunces, Georgia, serif; letter-spacing: -0.03em;
+    white-space: nowrap; margin: 56px 0 0; user-select: none; text-align: center;
+    color: transparent; -webkit-text-stroke: 1px var(--line);
+  }
+  .signature .k { -webkit-text-stroke-color: color-mix(in srgb, var(--kopa) 55%, transparent); }
+  .signature .l { -webkit-text-stroke-color: color-mix(in srgb, var(--linda) 55%, transparent); }
+  .signature .s { -webkit-text-stroke-color: color-mix(in srgb, var(--soma) 55%, transparent); }
+  .foot-bottom { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--line); padding: 20px 0 28px; font-size: 14px; position: relative; background: var(--paper); }
+  .foot-bottom a { color: var(--muted); }
+  @media (max-width: 900px) { .foot-grid { grid-template-columns: 1fr 1fr; } .foot-brand { grid-column: 1 / -1; } }
+  @media (max-width: 480px) { .foot-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .signature { font-size: 10.8vw; } }
 
   @media (max-width: 1600px) {
     .collage .c-kopa { width: 34%; }
@@ -470,13 +498,13 @@
       <div class="about">
         <div>
           <p>I grew up in the Meru community, where a duka's credit book, a stolen herd or a school's fee register can decide how a family's month goes. I build software for those moments.</p>
-          <p>I'm studying Computer Science at Mama Ngina University College and run <strong>SolveTech</strong>, the company behind KopaAlert. I like owning a system end to end: talking to the people who'll use it, designing the database, writing the code, shipping it, and looking after it once real people depend on it.</p>
+          <p>I'm studying Computer Science at Mama Ngina University College and run <strong>SolveTech Africa Ltd</strong>, the company behind KopaAlert. I like owning a system end to end: talking to the people who'll use it, designing the database, writing the code, shipping it, and looking after it once real people depend on it.</p>
           <p>I'm open to full-stack roles, internships and freelance projects, especially work that puts reliable software in the hands of Kenyan businesses, schools and communities.</p>
         </div>
         <div class="facts">
           <dl>
             <div><dt>Education</dt><dd>BSc Computer Science, Mama Ngina University College · Sept 2023 to Dec 2027 (expected)</dd></div>
-            <div><dt>Company</dt><dd>Founder & developer, SolveTech (KopaAlert)</dd></div>
+            <div><dt>Company</dt><dd>Founder & developer, SolveTech Africa Ltd (KopaAlert)</dd></div>
             <div><dt>Based in</dt><dd>Ruiru, Kenya · open to remote</dd></div>
             <div><dt>Languages</dt><dd>English, Kiswahili, Kimeru</dd></div>
           </dl>
@@ -500,9 +528,58 @@
   </div>
 </main>
 
-<footer>
-  <div class="wrap">© <span id="year">2026</span> Stanley Murangiri · Designed and built from scratch, no template.</div>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="mark" href="#top"><span class="sm">SM</span><span>Stanley Murangiri</span></a>
+        <p>Full-stack developer building software for how Kenya actually works. Founder of SolveTech Africa Ltd.</p>
+        <span class="status"><span class="dot"></span>Available for roles, internships and freelance work</span>
+      </div>
+      <nav aria-label="Footer">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#clients">Client work</a></li>
+          <li><a href="#how">How I work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="cv/Stanley-Murangiri-CV.pdf" download>Download CV</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h3>Projects</h3>
+        <ul>
+          <li><a class="ext" href="https://www.kopaalert.shop" target="_blank" rel="noopener">KopaAlert</a></li>
+          <li><a href="#lindameru">LindaMeru</a></li>
+          <li><a href="#somaorbit">SomaOrbit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <ul>
+          <li><a href="mailto:stanleymurangiri2@gmail.com">stanleymurangiri2@gmail.com</a></li>
+          <li><a class="ext" href="https://wa.me/254740305253" target="_blank" rel="noopener">WhatsApp · 0740 305 253</a></li>
+          <li><a class="ext" href="https://github.com/stanleymurangiri2" target="_blank" rel="noopener">GitHub</a></li>
+          <li>Ruiru, Kenya · <span class="clock" id="clock">EAT</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="signature" aria-hidden="true"><span class="k">Kopa</span> <span class="l">Linda</span> <span class="s">Soma</span></div>
+
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> Stanley Murangiri · Designed and built from scratch in Kenya, no template.</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </div>
 </footer>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  // Local time in Kenya, for visitors in other time zones.
+  const clock = document.getElementById('clock');
+  const fmt = new Intl.DateTimeFormat('en-KE', { timeZone: 'Africa/Nairobi', hour: 'numeric', minute: '2-digit' });
+  const tick = () => { clock.textContent = fmt.format(new Date()) + ' EAT'; };
+  tick(); setInterval(tick, 30000);
+</script>
 </body>
 </html>
