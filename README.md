@@ -12,7 +12,7 @@ A single static page (`index.html`), no framework and no build step. Deploys as-
 
 Edit `tools/cv.html` (or `tools/og.html`), then run, from this folder:
 
-    NODE_PATH=$HOME/Projects/kopa-alert/node_modules node tools/render.cjs https://YOUR-PORTFOLIO-URL
+    NODE_PATH=$HOME/Projects/kopa-alert/node_modules node tools/render.cjs https://stanleymurangiri.vercel.app
 
 The URL is optional; when given, it's printed on the CV next to GitHub.
 

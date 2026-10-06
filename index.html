@@ -7,9 +7,9 @@
 <meta name="description" content="Full-stack developer from Meru, Kenya. I build and run real systems: KopaAlert (live SMS debt reminders for shops), LindaMeru (offline crime mapping and dispatch for Meru County) and SomaOrbit (a platform for CBC schools).">
 <meta property="og:title" content="Stanley Murangiri · Full-Stack Developer">
 <meta property="og:description" content="Kopa. Linda. Soma. Three systems, three Swahili words, built for how Kenya actually works.">
-<meta property="og:image" content="https://portfolio-zeta-roan-19.vercel.app/assets/og-image.png">
-<meta property="og:url" content="https://portfolio-zeta-roan-19.vercel.app/">
-<link rel="canonical" href="https://portfolio-zeta-roan-19.vercel.app/">
+<meta property="og:image" content="https://stanleymurangiri.vercel.app/assets/og-image.png">
+<meta property="og:url" content="https://stanleymurangiri.vercel.app/">
+<link rel="canonical" href="https://stanleymurangiri.vercel.app/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#14181f">
@@ -54,7 +54,7 @@
   }
   img { max-width: 100%; height: auto; display: block; }
   a { color: inherit; }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
   .serif { font-family: Fraunces, Georgia, serif; }
   .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
 
@@ -81,16 +81,30 @@
   .nav .btn { padding: 8px 14px; }
 
   /* Hero */
-  .hero { padding: 88px 0 56px; }
+  .hero { padding: 64px 0 56px; }
   .eyebrow { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
   .hero h1 {
-    font: 800 clamp(42px, 7vw, 84px)/1.02 Fraunces, Georgia, serif; letter-spacing: -0.02em;
-    margin: 16px 0 22px; max-width: 14ch;
+    font: 800 clamp(42px, 5.6vw, 76px)/1.02 Fraunces, Georgia, serif; letter-spacing: -0.02em;
+    margin: 14px 0 20px; max-width: 14ch; text-wrap: balance;
   }
   .hero h1 em { font-style: italic; font-weight: 700; color: var(--kopa); }
   .hero p.lead { font-size: clamp(18px, 2vw, 21px); color: var(--muted); max-width: 62ch; margin: 0 0 30px; }
   .hero p.lead strong { color: var(--ink); font-weight: 600; }
   .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* Hero: text left, a collage of the three products right (wide screens) */
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 48px; align-items: center; }
+  .collage { position: relative; height: 500px; }
+  .collage a { position: absolute; display: block; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,.08), 0 24px 48px rgba(0,0,0,.18); transition: transform .25s ease; }
+  .collage a:hover { transform: translateY(-6px) rotate(0deg) !important; z-index: 5; }
+  .collage img { width: 100%; height: auto; }
+  .collage .tag { position: absolute; left: 10px; bottom: 10px; font: 800 15px Fraunces, serif; color: #fff; padding: 4px 10px; border-radius: 8px; }
+  .collage .c-soma { width: 82%; left: 9%; bottom: 0; transform: rotate(-1.5deg); z-index: 1; }
+  .collage .c-soma .tag { background: var(--soma); }
+  .collage .c-kopa { width: 40%; left: 0; top: 0; transform: rotate(-5deg); z-index: 3; }
+  .collage .c-kopa .tag { background: #b8860b; }
+  .collage .c-linda { width: 36%; right: 2%; top: 18px; transform: rotate(4deg); z-index: 2; }
+  .collage .c-linda .tag { background: #a0461f; }
 
   /* Kopa Linda Soma */
   .words {
@@ -193,6 +207,10 @@
   .contact .small { font-size: 14px; margin-top: 22px; }
   footer { padding: 0 0 40px; color: var(--muted); font-size: 14px; }
 
+  @media (max-width: 1000px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .collage { display: none; }
+  }
   @media (max-width: 900px) {
     .case-body, .about, .case.linda .case-body { grid-template-columns: 1fr; }
     .skills { grid-template-columns: repeat(2, 1fr); }
@@ -231,6 +249,8 @@
 <main id="top">
   <section class="hero">
     <div class="wrap">
+      <div class="hero-grid">
+      <div>
       <div class="eyebrow">Full-Stack Developer · Ruiru, Kenya</div>
       <h1>Software for how Kenya <em>actually</em> works.</h1>
       <p class="lead">I'm Stanley, a Computer Science student from Meru who builds and runs real systems:
@@ -240,6 +260,14 @@
         <a class="btn solid" href="#work">See the work</a>
         <a class="btn ghost" href="https://wa.me/254740305253" target="_blank" rel="noopener">WhatsApp me</a>
         <a class="btn ghost" href="cv/Stanley-Murangiri-CV.pdf" download>Download CV</a>
+      </div>
+      </div>
+
+      <div class="collage" aria-hidden="true">
+        <a class="c-soma" href="#somaorbit" tabindex="-1"><img src="assets/somaorbit-status.webp" width="1600" height="920" alt=""><span class="tag">Soma</span></a>
+        <a class="c-linda" href="#lindameru" tabindex="-1"><img src="assets/lindameru-offline-report.webp" width="500" height="813" alt=""><span class="tag">Linda</span></a>
+        <a class="c-kopa" href="#kopaalert" tabindex="-1"><img src="assets/kopaalert-mobile.webp" width="780" height="1110" alt=""><span class="tag">Kopa</span></a>
+      </div>
       </div>
 
       <div class="words">
