@@ -54,7 +54,7 @@
   }
   img { max-width: 100%; height: auto; display: block; }
   a { color: inherit; }
-  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+  .wrap { max-width: 1640px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 80px); }
   .serif { font-family: Fraunces, Georgia, serif; }
   .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
 
@@ -84,17 +84,17 @@
   .hero { padding: 64px 0 56px; }
   .eyebrow { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
   .hero h1 {
-    font: 800 clamp(42px, 5.6vw, 76px)/1.02 Fraunces, Georgia, serif; letter-spacing: -0.02em;
+    font: 800 clamp(42px, 5.2vw, 92px)/1.02 Fraunces, Georgia, serif; letter-spacing: -0.02em;
     margin: 14px 0 20px; max-width: 14ch; text-wrap: balance;
   }
   .hero h1 em { font-style: italic; font-weight: 700; color: var(--kopa); }
-  .hero p.lead { font-size: clamp(18px, 2vw, 21px); color: var(--muted); max-width: 62ch; margin: 0 0 30px; }
+  .hero p.lead { font-size: clamp(18px, 1.3vw, 23px); color: var(--muted); max-width: 62ch; margin: 0 0 30px; }
   .hero p.lead strong { color: var(--ink); font-weight: 600; }
   .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 
   /* Hero: text left, a collage of the three products right (wide screens) */
   .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 48px; align-items: center; }
-  .collage { position: relative; height: 500px; }
+  .collage { position: relative; height: clamp(460px, 33vw, 640px); }
   .collage a { position: absolute; display: block; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,.08), 0 24px 48px rgba(0,0,0,.18); transition: transform .25s ease; }
   .collage a:hover { transform: translateY(-6px) rotate(0deg) !important; z-index: 5; }
   .collage img { width: 100%; height: auto; }
@@ -207,6 +207,10 @@
   .contact .small { font-size: 14px; margin-top: 22px; }
   footer { padding: 0 0 40px; color: var(--muted); font-size: 14px; }
 
+  @media (max-width: 1600px) {
+    .collage .c-kopa { width: 34%; }
+    .collage .c-linda { width: 30%; }
+  }
   @media (max-width: 1000px) {
     .hero-grid { grid-template-columns: 1fr; }
     .collage { display: none; }
