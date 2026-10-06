@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stanley Murangiri · Full-Stack Developer, Kenya</title>
+<meta name="description" content="Full-stack developer from Meru, Kenya. I build and run real systems: KopaAlert (live SMS debt reminders for shops), LindaMeru (offline crime mapping and dispatch for Meru County) and SomaOrbit (a platform for CBC schools).">
+<meta property="og:title" content="Stanley Murangiri · Full-Stack Developer">
+<meta property="og:description" content="Kopa. Linda. Soma. Three systems, three Swahili words, built for how Kenya actually works.">
+<meta property="og:image" content="assets/og-image.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14181f">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f6f3ec;
+    --card: #fffdf8;
+    --ink: #15191f;
+    --muted: #5a6370;
+    --line: #e2dccf;
+    --kopa: #b8860b;
+    --kopa-deep: #0f2940;
+    --linda: #a0461f;
+    --soma: #1d7f48;
+    --chip: #ece6d8;
+    --shadow: 0 1px 2px rgba(21,25,31,.06), 0 8px 24px rgba(21,25,31,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #0f1216;
+      --card: #161a20;
+      --ink: #ece7dc;
+      --muted: #a2a9b3;
+      --line: #2a3038;
+      --kopa: #e0b84a;
+      --linda: #e07a4c;
+      --soma: #4cc283;
+      --chip: #20262e;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font: 400 17px/1.65 Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .serif { font-family: Fraunces, Georgia, serif; }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+  /* Nav */
+  header.nav {
+    position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .mark { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; }
+  .mark .sm {
+    width: 34px; height: 34px; border-radius: 9px; background: var(--ink); color: var(--paper);
+    display: grid; place-items: center; font: 700 15px Fraunces, serif;
+  }
+  .nav nav { display: flex; gap: 22px; align-items: center; font-size: 15px; }
+  .nav nav a { text-decoration: none; color: var(--muted); }
+  .nav nav a:hover { color: var(--ink); }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 10px;
+    text-decoration: none; font-weight: 600; font-size: 15px; border: 1px solid var(--ink);
+  }
+  .btn.solid { background: var(--ink); color: var(--paper); }
+  .btn.ghost { color: var(--ink); }
+  .nav .btn { padding: 8px 14px; }
+
+  /* Hero */
+  .hero { padding: 88px 0 56px; }
+  .eyebrow { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .hero h1 {
+    font: 800 clamp(42px, 7vw, 84px)/1.02 Fraunces, Georgia, serif; letter-spacing: -0.02em;
+    margin: 16px 0 22px; max-width: 14ch;
+  }
+  .hero h1 em { font-style: italic; font-weight: 700; color: var(--kopa); }
+  .hero p.lead { font-size: clamp(18px, 2vw, 21px); color: var(--muted); max-width: 62ch; margin: 0 0 30px; }
+  .hero p.lead strong { color: var(--ink); font-weight: 600; }
+  .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* Kopa Linda Soma */
+  .words {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 64px;
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .word { padding: 26px 22px; text-decoration: none; }
+  .word + .word { border-left: 1px solid var(--line); }
+  .word .w { font: 800 clamp(34px, 4.6vw, 52px)/1 Fraunces, serif; letter-spacing: -0.01em; }
+  .word .def { font-size: 14px; color: var(--muted); margin-top: 8px; }
+  .word .def i { font-family: Fraunces, serif; }
+  .word .prod { margin-top: 12px; font-weight: 600; font-size: 15px; }
+  .word.kopa .w { color: var(--kopa); }
+  .word.linda .w { color: var(--linda); }
+  .word.soma .w { color: var(--soma); }
+  .word:hover .prod { text-decoration: underline; }
+
+  /* Proof */
+  .proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding: 44px 0 20px; }
+  .stat .n { font: 700 clamp(30px, 3.6vw, 42px)/1 Fraunces, serif; }
+  .stat .l { font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+  /* Sections */
+  section.block { padding: 72px 0; }
+  .block h2 { font: 800 clamp(30px, 4vw, 44px)/1.1 Fraunces, serif; letter-spacing: -0.01em; margin: 8px 0 14px; }
+  .block .intro { color: var(--muted); max-width: 64ch; margin: 0; }
+
+  /* Case studies */
+  .case { margin-top: 56px; background: var(--card); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); overflow: hidden; }
+  .case-head { padding: 34px 36px 8px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; align-items: flex-start; }
+  .case-title { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .case h3 { font: 800 clamp(28px, 3.4vw, 38px)/1.1 Fraunces, serif; margin: 0; }
+  .case .meaning { font-family: Fraunces, serif; font-style: italic; color: var(--muted); font-size: 18px; }
+  .badge { font: 600 12px 'JetBrains Mono', monospace; letter-spacing: .04em; padding: 6px 10px; border-radius: 999px; white-space: nowrap; }
+  .badge.live { background: color-mix(in srgb, var(--soma) 16%, transparent); color: var(--soma); }
+  .badge.live::before { content: "● "; }
+  .badge.qa, .badge.pilot { background: var(--chip); color: var(--muted); }
+  .case .tagline { padding: 0 36px; font-size: 19px; max-width: 70ch; margin: 10px 0 0; }
+  .case-body { display: grid; grid-template-columns: 1.05fr 1fr; gap: 36px; padding: 28px 36px 36px; }
+  .case h4 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 22px 0 8px; font-weight: 700; }
+  .case h4:first-child { margin-top: 0; }
+  .case p { margin: 0 0 10px; }
+  .case ul { margin: 0; padding-left: 18px; }
+  .case li { margin: 4px 0; }
+  .case li::marker { color: var(--muted); }
+  .hard { border-left: 3px solid var(--accent); padding: 4px 0 4px 16px; margin: 6px 0; }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+  .chip { font: 500 12.5px 'JetBrains Mono', monospace; background: var(--chip); padding: 5px 9px; border-radius: 7px; }
+  .shots { display: grid; gap: 14px; align-content: start; }
+  .shot { margin: 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: #fff; }
+  .shot figcaption { font-size: 13px; color: var(--muted); padding: 8px 12px; background: var(--card); border-top: 1px solid var(--line); }
+  .shots.pair { grid-template-columns: 1fr 1.5fr; align-items: start; }
+  .case.linda .case-body { grid-template-columns: 1fr 1.2fr; }
+  .shots.twin { grid-template-columns: 1fr 1fr; align-items: start; }
+  .case.kopa { --accent: var(--kopa); }
+  .case.linda { --accent: var(--linda); }
+  .case.soma { --accent: var(--soma); }
+  .case .rule { height: 6px; background: var(--accent); }
+  .links { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* How I work */
+  .principles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 36px; }
+  .principle { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px 26px; }
+  .principle .k { font: 600 12px 'JetBrains Mono', monospace; color: var(--muted); }
+  .principle h3 { font: 700 22px/1.25 Fraunces, serif; margin: 6px 0 8px; }
+  .principle p { margin: 0; color: var(--muted); font-size: 16px; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 32px; }
+  .skills h3 { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+  .skills ul { list-style: none; padding: 0; margin: 0; }
+  .skills li { padding: 7px 0; border-bottom: 1px solid var(--line); font-size: 15.5px; }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; margin-top: 28px; }
+  .about p { margin: 0 0 14px; }
+  .facts { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 8px 24px; }
+  .facts dl { margin: 0; }
+  .facts div { display: grid; grid-template-columns: 120px 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .facts div:last-child { border-bottom: 0; }
+  .facts dt { color: var(--muted); font-size: 14px; }
+  .facts dd { margin: 0; font-weight: 500; }
+
+  /* Contact */
+  .contact { background: var(--ink); color: var(--paper); border-radius: 24px; padding: 56px 48px; margin: 24px 0 72px; }
+  .contact h2 { color: var(--paper); margin: 8px 0 14px; font: 800 clamp(30px, 4vw, 44px)/1.1 Fraunces, serif; letter-spacing: -0.01em; }
+  .contact p { color: color-mix(in srgb, var(--paper) 75%, transparent); max-width: 60ch; }
+  .contact .btn.solid { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+  .contact .btn.ghost { color: var(--paper); border-color: color-mix(in srgb, var(--paper) 50%, transparent); }
+  .contact .small { font-size: 14px; margin-top: 22px; }
+  footer { padding: 0 0 40px; color: var(--muted); font-size: 14px; }
+
+  @media (max-width: 900px) {
+    .case-body, .about, .case.linda .case-body { grid-template-columns: 1fr; }
+    .skills { grid-template-columns: repeat(2, 1fr); }
+    .proof { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
+    .principles { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 16px; }
+    .nav nav a:not(.btn) { display: none; }
+    .hero { padding: 56px 0 36px; }
+    .words { grid-template-columns: 1fr; }
+    .word + .word { border-left: 0; border-top: 1px solid var(--line); }
+    .case-head, .case-body { padding-left: 20px; padding-right: 20px; }
+    .case .tagline { padding: 0 20px; }
+    .shots.pair { grid-template-columns: 1fr; }
+    .contact { padding: 40px 24px; }
+    .facts div { grid-template-columns: 1fr; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="mark" href="#top"><span class="sm">SM</span><span>Stanley Murangiri</span></a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#how">How I work</a>
+      <a href="#about">About</a>
+      <a class="btn ghost" href="cv/Stanley-Murangiri-CV.pdf" download>Download CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Full-Stack Developer · Ruiru, Kenya</div>
+      <h1>Software for how Kenya <em>actually</em> works.</h1>
+      <p class="lead">I'm Stanley, a Computer Science student from Meru who builds and runs real systems:
+        <strong>a live SMS debt-reminder product for shops</strong>, <strong>an offline crime-mapping and dispatch system for Meru County</strong>,
+        and <strong>a platform for CBC schools</strong>. Built for feature phones, patchy networks and Kenyan businesses.</p>
+      <div class="ctas">
+        <a class="btn solid" href="#work">See the work</a>
+        <a class="btn ghost" href="https://wa.me/254740305253" target="_blank" rel="noopener">WhatsApp me</a>
+        <a class="btn ghost" href="cv/Stanley-Murangiri-CV.pdf" download>Download CV</a>
+      </div>
+
+      <div class="words">
+        <a class="word kopa" href="#kopaalert">
+          <div class="w">Kopa</div>
+          <div class="def"><i>verb, Kiswahili</i> · to borrow, to buy on credit</div>
+          <div class="prod">KopaAlert →</div>
+        </a>
+        <a class="word linda" href="#lindameru">
+          <div class="w">Linda</div>
+          <div class="def"><i>verb, Kiswahili</i> · to protect, to guard</div>
+          <div class="prod">LindaMeru →</div>
+        </a>
+        <a class="word soma" href="#somaorbit">
+          <div class="w">Soma</div>
+          <div class="def"><i>verb, Kiswahili</i> · to read, to study</div>
+          <div class="prod">SomaOrbit →</div>
+        </a>
+      </div>
+
+      <div class="proof">
+        <div class="stat"><div class="n">1</div><div class="l">live product with its first businesses onboarded</div></div>
+        <div class="stat"><div class="n">530+</div><div class="l">commits across three systems since July 2026</div></div>
+        <div class="stat"><div class="n">210</div><div class="l">automated tests on LindaMeru, against real PostGIS</div></div>
+        <div class="stat"><div class="n">165</div><div class="l">pages and 57 modules in SomaOrbit</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="work">
+    <div class="wrap">
+      <div class="eyebrow">Selected work</div>
+      <h2>Three systems, three Swahili words.</h2>
+      <p class="intro">Each one started from a problem I've seen at home: shops losing money on credit, insecurity in Meru's border areas, and schools buried in paperwork.</p>
+
+      <!-- KopaAlert -->
+      <article class="case kopa" id="kopaalert">
+        <div class="rule"></div>
+        <div class="case-head">
+          <div class="case-title"><h3>KopaAlert</h3><span class="meaning">kopa · to buy on credit</span></div>
+          <span class="badge live">LIVE · kopaalert.shop</span>
+        </div>
+        <p class="tagline">Kenyan shops sell on credit and track it in exercise books. Customers forget, or avoid paying. KopaAlert keeps the record and sends polite SMS reminders automatically, so owners get paid without the awkward calls.</p>
+        <div class="case-body">
+          <div>
+            <h4>What I built</h4>
+            <ul>
+              <li>Automatic SMS reminders before, on and after the due date, as plain SMS that reach feature phones too (Africa's Talking)</li>
+              <li>Loans, payments, top-ups and overpayment credit, with a full ledger and M-Pesa-style PDF statements</li>
+              <li>Customer credit ratings and automatic blacklisting of long-overdue customers</li>
+              <li>Import a whole notebook at once from Excel/CSV, or type it in</li>
+              <li>Multi-branch businesses: each branch has its own customers, a branch switcher for owners, and staff who only see their branch</li>
+              <li>Staff controls: deactivate/reactivate, opening hours per branch with a "today only" override, and an activity log of who changed what</li>
+              <li>Subscription billing, SMS allowances, referrals ("bring a business, get a month free") and a super-admin console</li>
+              <li>Installable app (PWA) with an offline page, for owners on budget phones</li>
+            </ul>
+            <h4>The hard part</h4>
+            <p class="hard">Keeping every business's data private, and every employee inside their branch and their working hours, <em>in the database itself</em>, using PostgreSQL row-level security and triggers, so it holds even if someone bypasses the app, and even mid-session. Every change was rehearsed on a copy of the live schema before touching real businesses.</p>
+            <h4>Stack</h4>
+            <div class="chips"><span class="chip">Next.js 16</span><span class="chip">React 19</span><span class="chip">TypeScript</span><span class="chip">Supabase · Postgres RLS</span><span class="chip">PL/pgSQL</span><span class="chip">Africa's Talking</span><span class="chip">Resend</span><span class="chip">Vercel</span><span class="chip">Jest</span></div>
+            <div class="links"><a class="btn solid" href="https://www.kopaalert.shop" target="_blank" rel="noopener">Visit kopaalert.shop</a></div>
+          </div>
+          <div class="shots">
+            <figure class="shot"><img src="assets/kopaalert-desktop.webp" width="1440" height="900" loading="lazy" alt="KopaAlert landing page: Stop chasing customers for money, with an example SMS reminder"><figcaption>The public site. Owners register and start sending reminders the same day.</figcaption></figure>
+            <div class="shots twin">
+              <figure class="shot"><img src="assets/kopaalert-mobile.webp" width="780" height="1110" loading="lazy" alt="KopaAlert on a phone"><figcaption>Built phone-first.</figcaption></figure>
+              <figure class="shot"><img src="assets/kopaalert-flyer-sw.webp" width="700" height="993" loading="lazy" alt="KopaAlert flyer in Kiswahili: Wateja wanakudai pesa? Lipwa kwa wakati."><figcaption>My Kiswahili flyer for shop visits.</figcaption></figure>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- LindaMeru -->
+      <article class="case linda" id="lindameru">
+        <div class="rule"></div>
+        <div class="case-head">
+          <div class="case-title"><h3>LindaMeru</h3><span class="meaning">linda · to protect</span></div>
+          <span class="badge pilot">FINAL-YEAR PROJECT · BUILT FOR IGEMBE NORTH</span>
+        </div>
+        <p class="tagline">Livestock rustling and insecurity hit Meru's border areas hardest, where the network is weakest and phones are oldest. LindaMeru gives officers a way to report incidents with no signal, and commanders a live picture of where to send help.</p>
+        <div class="case-body">
+          <div>
+            <h4>What I built</h4>
+            <ul>
+              <li>An offline-first app for officers: reports are kept safely on the phone and sync once, by themselves, when the network returns</li>
+              <li>A crime map with sub-county boundaries and statistical hot spots (Getis-Ord Gi*), plus migration routes, grazing areas and threat zones</li>
+              <li>An ERP for stations, vehicles, officers, shift rosters, fuel and drones, with readiness at a glance</li>
+              <li>Dispatch advice that ranks vehicles by <em>travel time along Meru's real roads</em> (OpenStreetMap + PostGIS), not straight-line distance</li>
+              <li>A commander dashboard, community tip inbox, and an audit trail where each record is sealed to the one before it, so history can't be quietly changed</li>
+            </ul>
+            <h4>The hard part</h4>
+            <p class="hard">Designing for no network and very old phones: no framework and no build step on the frontend, a queue in IndexedDB that never sends a report twice, and road-network routing that falls back gracefully where roads aren't mapped. All of it covered by 210 automated tests against a real PostGIS database.</p>
+            <h4>Stack</h4>
+            <div class="chips"><span class="chip">Django + DRF</span><span class="chip">PostgreSQL + PostGIS</span><span class="chip">GeoDjango</span><span class="chip">Vanilla JS PWA</span><span class="chip">Leaflet</span><span class="chip">IndexedDB</span><span class="chip">Service Worker</span><span class="chip">Docker</span><span class="chip">Caddy</span></div>
+          </div>
+          <div class="shots pair">
+            <figure class="shot"><img src="assets/lindameru-offline-report.webp" width="500" height="813" loading="lazy" alt="LindaMeru officer app reporting a livestock rustling incident while offline"><figcaption>Reporting with no signal: "offline, saving locally".</figcaption></figure>
+            <figure class="shot"><img src="assets/lindameru-command.webp" width="900" height="913" loading="lazy" alt="LindaMeru commander dashboard with map, vehicle and officer readiness and response times"><figcaption>Commander view, with demo data.</figcaption></figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- SomaOrbit -->
+      <article class="case soma" id="somaorbit">
+        <div class="rule"></div>
+        <div class="case-head">
+          <div class="case-title"><h3>SomaOrbit</h3><span class="meaning">soma · to study</span></div>
+          <span class="badge qa">V1 BUILT · IN SYSTEM QA</span>
+        </div>
+        <p class="tagline">CBC schools juggle paper registers, spreadsheets and separate tools for fees, exams and parents. SomaOrbit puts a whole school in one system, and serves many schools from one deployment without any school ever seeing another's data.</p>
+        <div class="case-body">
+          <div>
+            <h4>What I built</h4>
+            <ul>
+              <li>57 modules across 165 pages for six roles: super admin, school admin, teacher, staff, parent and student</li>
+              <li>CBC competencies, assessments, exams and report cards; timetables and attendance (works offline)</li>
+              <li>Fees, payments with an automated webhook, fee structures, discounts and a finance ledger</li>
+              <li>School departments: QR gate passes and visitor log, health and sick bay, transport, kitchen, library, labs and co-curricular</li>
+              <li>SMS and email to guardians</li>
+            </ul>
+            <h4>The hard part</h4>
+            <p class="hard">Multi-tenant security for children's data: row-level security across 99 database migrations, extra verification (MFA) on 12 sensitive areas, two-person approval for refunds and fee waivers, audit trails, and a super admin who deliberately <em>can't</em> see inside schools.</p>
+            <h4>Stack</h4>
+            <div class="chips"><span class="chip">Next.js 16</span><span class="chip">React 19</span><span class="chip">TypeScript</span><span class="chip">Tailwind</span><span class="chip">Supabase · RLS</span><span class="chip">Africa's Talking</span><span class="chip">Resend</span><span class="chip">PWA</span></div>
+          </div>
+          <div class="shots">
+            <figure class="shot"><img src="assets/somaorbit-status.webp" width="1600" height="920" loading="lazy" alt="SomaOrbit project status: 57 feature modules, 165 pages, 99 migrations, 6 roles, 12 MFA-protected areas, 0 known vulnerabilities"><figcaption>Project status board (6 Oct 2026): all V1 modules built, now in system QA.</figcaption></figure>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="how">
+    <div class="wrap">
+      <div class="eyebrow">How I work</div>
+      <h2>Real users deserve careful engineering.</h2>
+      <p class="intro">The habits behind all three projects. Ask me about any of them in an interview; I can show the receipts.</p>
+      <div class="principles">
+        <div class="principle"><div class="k">01</div><h3>Security lives in the database</h3><p>Who can see what is enforced by PostgreSQL row-level security, not just hidden buttons. I test it by switching between roles on a copy of the database.</p></div>
+        <div class="principle"><div class="k">02</div><h3>Built for real Kenyan conditions</h3><p>Offline-first apps, budget phones, plain SMS that reaches feature phones, Kenya time and Kiswahili. If it only works on fast Wi-Fi, it doesn't work.</p></div>
+        <div class="principle"><div class="k">03</div><h3>Careful with live systems</h3><p>Read-only investigation first, database changes rehearsed on a copy of the live schema, and the database deployed before the code that depends on it.</p></div>
+        <div class="principle"><div class="k">04</div><h3>Honest records</h3><p>Every notable change gets a dated changelog entry that says what was verified and what wasn't. No "done" that isn't done.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <div class="eyebrow">Toolbox</div>
+      <h2>What I build with.</h2>
+      <div class="skills">
+        <div><h3>Frontend</h3><ul><li>Next.js · React</li><li>TypeScript</li><li>Tailwind CSS</li><li>Vanilla JS PWAs</li><li>Leaflet maps</li></ul></div>
+        <div><h3>Backend & data</h3><ul><li>PostgreSQL · PL/pgSQL</li><li>Supabase · RLS</li><li>Django · DRF</li><li>PostGIS · GeoDjango</li><li>REST APIs</li></ul></div>
+        <div><h3>Integrations</h3><ul><li>Africa's Talking SMS</li><li>Resend email</li><li>Payment webhooks</li><li>Cloudflare Turnstile</li><li>OpenStreetMap</li></ul></div>
+        <div><h3>Delivery</h3><ul><li>Git · GitHub</li><li>Vercel</li><li>Docker · Linux</li><li>Jest · Playwright</li><li>Offline-first & service workers</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="eyebrow">About</div>
+      <h2>From Meru, building for Kenya.</h2>
+      <div class="about">
+        <div>
+          <p>I grew up in the Meru community, where a duka's credit book, a stolen herd or a school's fee register can decide how a family's month goes. I build software for those moments.</p>
+          <p>I'm studying Computer Science at Mama Ngina University College and run <strong>SolveTech</strong>, the company behind KopaAlert. I like owning a system end to end: talking to the people who'll use it, designing the database, writing the code, shipping it, and looking after it once real people depend on it.</p>
+          <p>I'm open to full-stack roles, internships and freelance projects, especially work that puts reliable software in the hands of Kenyan businesses, schools and communities.</p>
+        </div>
+        <div class="facts">
+          <dl>
+            <div><dt>Education</dt><dd>BSc Computer Science, Mama Ngina University College · Sept 2023 to Dec 2027 (expected)</dd></div>
+            <div><dt>Company</dt><dd>Founder & developer, SolveTech (KopaAlert)</dd></div>
+            <div><dt>Based in</dt><dd>Ruiru, Kenya · open to remote</dd></div>
+            <div><dt>Languages</dt><dd>English, Kiswahili, Kimeru</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="contact" id="contact">
+      <div class="eyebrow" style="color:inherit;opacity:.7">Contact</div>
+      <h2 class="serif">Let's build something that works out here.</h2>
+      <p>Hiring, a freelance project, or just want a walkthrough of one of these systems? I usually reply the same day.</p>
+      <div class="ctas">
+        <a class="btn solid" href="mailto:stanleymurangiri2@gmail.com">stanleymurangiri2@gmail.com</a>
+        <a class="btn ghost" href="https://wa.me/254740305253" target="_blank" rel="noopener">WhatsApp · 0740 305 253</a>
+        <a class="btn ghost" href="https://github.com/stanleymurangiri2" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <p class="small">The source code for these projects is private, as KopaAlert serves real businesses. I'm happy to walk you through the code on a call.</p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year">2026</span> Stanley Murangiri · Designed and built from scratch, no template.</div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
