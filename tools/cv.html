@@ -5,12 +5,13 @@
 <title>Stanley Murangiri - CV</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,700&display=swap" rel="stylesheet">
 <style>
-  @page { size: A4; margin: 12mm 15mm; }
+  @page { size: A4; margin: 10mm 15mm 9mm; }
   * { box-sizing: border-box; }
   body { margin: 0; font: 400 9.5pt/1.38 Inter, Arial, sans-serif; color: #15191f; text-rendering: geometricPrecision; }
   h1 { font: 700 23pt/1.05 Fraunces, Georgia, serif; margin: 0; letter-spacing: -0.2pt; }
   .role { font-size: 11pt; font-weight: 600; color: #5a6370; margin-top: 3pt; }
-  .contact { margin-top: 6pt; font-size: 9pt; color: #15191f; }
+  .contact { margin-top: 4pt; font-size: 9pt; color: #15191f; }
+  .contact + .contact { margin-top: 1.5pt; }
   .contact span + span::before { content: " · "; color: #9aa2ad; }
   .contact span:empty { display: none; }
   a { color: inherit; text-decoration: none; }
@@ -40,6 +41,8 @@
       <span>Ruiru, Kenya</span>
       <span>+254 740 305 253</span>
       <span><a href="mailto:stanleymurangiri2@gmail.com">stanleymurangiri2@gmail.com</a></span>
+    </div>
+    <div class="contact">
       <span><a href="https://github.com/stanleymurangiri2">github.com/stanleymurangiri2</a></span>
       <span id="portfolio-link"></span>
     </div>
