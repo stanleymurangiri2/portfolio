@@ -16,7 +16,7 @@
   a { color: inherit; text-decoration: none; }
   h2 {
     font-size: 9pt; letter-spacing: 1.4pt; text-transform: uppercase; color: #5a6370; font-weight: 700;
-    border-bottom: 0.8pt solid #d9d3c6; padding-bottom: 3pt; margin: 11pt 0 6pt;
+    border-bottom: 0.8pt solid #d9d3c6; padding-bottom: 2.5pt; margin: 9pt 0 5pt;
   }
   p { margin: 0 0 5pt; }
   .item { margin-bottom: 7pt; break-inside: avoid; }
@@ -46,7 +46,7 @@
   </header>
 
   <h2>Summary</h2>
-  <p>Full-stack developer and Computer Science student who builds and runs production systems for Kenyan users. Founder of SolveTech, whose live product KopaAlert sends automated SMS debt reminders for shops. Strong in Next.js, React and TypeScript; PostgreSQL and Supabase with row-level security; Django and PostGIS; and offline-first web apps for low-end phones and weak networks.</p>
+  <p>Full-stack developer and Computer Science student who builds and runs production systems for Kenyan users. Founder of SolveTech, whose live product KopaAlert sends automated SMS debt reminders for shops. Strong in Next.js, React and TypeScript; PostgreSQL/Supabase with row-level security; Django and PostGIS; and offline-first apps for low-end phones.</p>
 
   <h2>Experience &amp; Projects</h2>
 
@@ -59,8 +59,8 @@
     <ul>
       <li>Built and launched a multi-tenant product that tracks customer credit and sends automated SMS reminders before, on and after due dates; first businesses onboarded.</li>
       <li>Enforced business, branch and staff-level access in PostgreSQL (row-level security and triggers), including deactivated staff and branch opening hours, so the rules hold even if the app is bypassed.</li>
-      <li>Shipped subscription billing, per-segment SMS charging, referrals, multi-branch support, an activity audit log, PDF statements and Excel/CSV import (290+ commits).</li>
-      <li>Rehearsed every production database migration on a copy of the live schema before release; unit tests (Jest) for billing and access-control routes.</li>
+      <li>Shipped subscription billing, per-segment SMS charging, referrals, multi-branch support, an audit log, PDF statements and Excel import (290+ commits).</li>
+      <li>Rehearsed every production migration on a copy of the live schema; Jest tests for billing and access-control routes.</li>
     </ul>
   </div>
 
@@ -72,7 +72,7 @@
     <div class="meta">Django + DRF, PostgreSQL + PostGIS (GeoDjango), vanilla JS PWA, Leaflet, IndexedDB, Docker</div>
     <ul>
       <li>Designed an offline-first app for officers on low-end phones: reports are queued on the device and sync exactly once when the network returns.</li>
-      <li>Built an ERP for stations, vehicles, rosters, fuel and drones, and a decision-support module that ranks vehicles by travel time along real roads (OpenStreetMap + PostGIS).</li>
+      <li>Built an ERP (stations, vehicles, rosters, fuel, drones) and dispatch advice that ranks vehicles by road travel time (OpenStreetMap + PostGIS).</li>
       <li>Implemented crime hot-spot analysis (Getis-Ord Gi*), a commander dashboard and a tamper-evident audit trail; 210 automated tests against a real PostGIS database.</li>
     </ul>
   </div>
@@ -89,6 +89,17 @@
     </ul>
   </div>
 
+  <div class="item">
+    <div class="item-head">
+      <div class="item-title">Freelance Developer <span class="sub">· Client projects</span></div>
+      <div class="when">Jun 2026 to Sep 2026</div>
+    </div>
+    <ul>
+      <li>Library management system for a Catholic seminary (in use): catalogue with bulk import and shelf labels, loans, reservations, fines, automatic overdue email notices and a student portal. Next.js, Supabase.</li>
+      <li>Website with online orders and an admin panel for a cereals and animal-feeds wholesaler in Meru County. React, Supabase.</li>
+    </ul>
+  </div>
+
   <h2>Education</h2>
   <div class="item">
     <div class="item-head">
@@ -101,8 +112,8 @@
   <dl class="skills">
     <dt>Languages</dt><dd>TypeScript, JavaScript, Python, SQL (PL/pgSQL)</dd>
     <dt>Frontend</dt><dd>Next.js, React, Tailwind CSS, Progressive Web Apps (service workers, IndexedDB), Leaflet</dd>
-    <dt>Backend &amp; data</dt><dd>PostgreSQL, Supabase (row-level security), Django REST Framework, PostGIS / GeoDjango</dd>
-    <dt>Integrations</dt><dd>Africa's Talking SMS, Resend email, payment webhooks, OpenStreetMap, Cloudflare Turnstile</dd>
+    <dt>Backend &amp; data</dt><dd>PostgreSQL, Supabase (RLS), Django REST Framework, PostGIS / GeoDjango</dd>
+    <dt>Integrations</dt><dd>Africa's Talking SMS, Resend, payment webhooks, OpenStreetMap, Turnstile</dd>
     <dt>Tools</dt><dd>Git, GitHub, Docker, Linux, Vercel, Jest, Playwright</dd>
     <dt>Spoken</dt><dd>English, Kiswahili, Kimeru</dd>
   </dl>

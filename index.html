@@ -7,7 +7,9 @@
 <meta name="description" content="Full-stack developer from Meru, Kenya. I build and run real systems: KopaAlert (live SMS debt reminders for shops), LindaMeru (offline crime mapping and dispatch for Meru County) and SomaOrbit (a platform for CBC schools).">
 <meta property="og:title" content="Stanley Murangiri · Full-Stack Developer">
 <meta property="og:description" content="Kopa. Linda. Soma. Three systems, three Swahili words, built for how Kenya actually works.">
-<meta property="og:image" content="assets/og-image.png">
+<meta property="og:image" content="https://portfolio-zeta-roan-19.vercel.app/assets/og-image.png">
+<meta property="og:url" content="https://portfolio-zeta-roan-19.vercel.app/">
+<link rel="canonical" href="https://portfolio-zeta-roan-19.vercel.app/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#14181f">
@@ -149,6 +151,16 @@
   .case .rule { height: 6px; background: var(--accent); }
   .links { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
 
+  /* Client work */
+  .clients { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 32px; }
+  .client { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 26px 28px; display: flex; flex-direction: column; }
+  .client .top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; flex-wrap: wrap; }
+  .client h3 { font: 700 23px/1.2 Fraunces, serif; margin: 0; }
+  .client .who { color: var(--muted); font-size: 15px; margin: 4px 0 12px; }
+  .client ul { margin: 0 0 14px; padding-left: 18px; }
+  .client li { margin: 4px 0; font-size: 15.5px; }
+  .client .chips { margin-top: auto; }
+
   /* How I work */
   .principles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 36px; }
   .principle { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px 26px; }
@@ -185,7 +197,7 @@
     .case-body, .about, .case.linda .case-body { grid-template-columns: 1fr; }
     .skills { grid-template-columns: repeat(2, 1fr); }
     .proof { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
-    .principles { grid-template-columns: 1fr; }
+    .principles, .clients { grid-template-columns: 1fr; }
   }
   @media (max-width: 640px) {
     body { font-size: 16px; }
@@ -358,6 +370,37 @@
           </div>
         </div>
       </article>
+    </div>
+  </section>
+
+  <section class="block" id="clients">
+    <div class="wrap">
+      <div class="eyebrow">Client work</div>
+      <h2>Built for real organisations.</h2>
+      <p class="intro">Freelance projects delivered for clients. Client names are left out for their privacy; I'm happy to share details in an interview.</p>
+      <div class="clients">
+        <article class="client">
+          <div class="top"><h3>Seminary library system</h3><span class="badge live">IN USE</span></div>
+          <div class="who">For a Catholic seminary in Kenya · Aug to Sep 2026</div>
+          <ul>
+            <li>Catalogue with bulk book import from a spreadsheet and printable shelf labels</li>
+            <li>Loans, reservations and fines, with automatic "due soon" and overdue email notices</li>
+            <li>Member portal for students: my loans, reservations, fines and a digital library</li>
+            <li>Admin tools for circulation, members, reports, courses, events and the lectionary</li>
+          </ul>
+          <div class="chips"><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Supabase · PostgreSQL</span><span class="chip">PL/pgSQL</span><span class="chip">Email</span></div>
+        </article>
+        <article class="client">
+          <div class="top"><h3>Wholesaler website &amp; orders</h3><span class="badge qa">DELIVERED</span></div>
+          <div class="who">For a cereals and animal-feeds wholesaler in Meru County · Jun 2026</div>
+          <ul>
+            <li>Business website with products, pricing, services, gallery, blog and contact pages</li>
+            <li>Online order form so institutions, retailers and farmers can order directly</li>
+            <li>Admin panel to manage products, prices, orders, blog posts and the gallery</li>
+          </ul>
+          <div class="chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Supabase</span><span class="chip">Tailwind</span></div>
+        </article>
+      </div>
     </div>
   </section>
 
